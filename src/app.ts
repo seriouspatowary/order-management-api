@@ -3,11 +3,11 @@ import cors from "cors";
 import helmet from "helmet";
 import FoodRoutes from "./routes/fooditem.route"
 import OrderRoutes from "./routes/order.routes"
-// import { env } from "./config/env";
+import { env } from "./config/env";
 import rateLimit from "express-rate-limit";
 
 const app = express();
-// const allowedOrigin = env.FRONTEND_URI;
+const allowedOrigin = env.FRONTEND_URI;
 
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -23,17 +23,18 @@ const apiLimiter = rateLimit({
 
 // Helmet adds several HTTP security headers.
 app.use(helmet());
+
+
 // only allowed required origin
 app.use(
   cors({
-    origin: true,
+    origin: allowedOrigin,
     credentials: true,
   })
 );
 
 // Without a reasonable limit, someone could send an unnecessarily huge JSON payload to your API.
 app.use(express.json({ limit: "200kb" }));
-
 
 app.get("/", (_req, res) => {
   res.status(200).json({
