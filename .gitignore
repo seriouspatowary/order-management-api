@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+
+# Vitest
+.vitest/
+
+# MongoDB local files (if you ever use local DB files)
+data/
