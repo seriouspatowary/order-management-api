@@ -3,11 +3,11 @@ import cors from "cors";
 import helmet from "helmet";
 import FoodRoutes from "./routes/fooditem.route"
 import OrderRoutes from "./routes/order.routes"
-import { env } from "./config/env";
+// import { env } from "./config/env";
 import rateLimit from "express-rate-limit";
 
 const app = express();
-const allowedOrigin = env.FRONTEND_URI;
+// const allowedOrigin = env.FRONTEND_URI;
 
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -26,7 +26,7 @@ app.use(helmet());
 // only allowed required origin
 app.use(
   cors({
-    origin: allowedOrigin,
+    origin: true,
     credentials: true,
   })
 );

@@ -32,6 +32,8 @@ describe("POST /api/order/create", () => {
         ],
       });
 
+    // console.log("response:",response.body)
+
     expect(response.status).toBe(201);
   });
 });
