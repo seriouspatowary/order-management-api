@@ -32,5 +32,3 @@ temp/
 # Vitest
 .vitest/
 
-# MongoDB local files (if you ever use local DB files)
-data/

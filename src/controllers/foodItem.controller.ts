@@ -1,12 +1,11 @@
-
 import { Request, Response, NextFunction } from "express";
 import * as foodItemService from "../services/foodItem.services";
 
 export const getFoodItems = async (
-  req: Request,
+    _req: Request,
   res: Response,
   next: NextFunction
-) => {
+): Promise<void> => {
   try {
     const foodItems = await foodItemService.getFoodItems();
 
